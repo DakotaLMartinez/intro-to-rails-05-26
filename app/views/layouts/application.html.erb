@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <nav>
+      <a href="/sessions/new">Login</a>
+      <a href="/users/new">Sign Up</a>
+      <a href="/posts">Posts</a>
+      <%= button_to "Log Out", 'sessions/destroy', method: :delete %>
+    </nav>
+    <h1>Logged In as: <%= current_user.try(:email) %></h1>
     <% flash.each do |type, msg| %>
       <div>
         <%= msg %>
