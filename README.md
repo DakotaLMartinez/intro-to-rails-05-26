@@ -117,6 +117,9 @@ Sinatra -> `gem 'pry'` -> `binding.pry`
 Rails -> `gem 'pry-rails'` -> `binding.pry`
 Rails also has the web-console, which is an in browser version of pry that works if you hit a server error while running the `rails server`
 
+#### Routing
+We can go to `localhost:3000/rails/info` to see all of the routes our Rails app knows how to respond to and this will include the path helpers (methods that return a url) we can use in our views within forms and links.
+
 #### Generators 
 `rails new name_of_app` -> Creates the folder/file structure and runs bundle install and initializes a git repository
 `rails generate model` -> creates a model/migration/spec
@@ -126,3 +129,33 @@ Rails also has the web-console, which is an in browser version of pry that works
 
 Example:
 `rails generate resource Envelope size color`
+
+This does this:
+
+```
+invoke  active_record
+create    db/migrate/20200922232256_create_envelopes.rb
+create    app/models/envelope.rb
+invoke    test_unit
+create      test/models/envelope_test.rb
+create      test/fixtures/envelopes.yml
+invoke  controller
+create    app/controllers/envelopes_controller.rb
+invoke    erb
+create      app/views/envelopes
+invoke    test_unit
+create      test/controllers/envelopes_controller_test.rb
+invoke    helper
+create      app/helpers/envelopes_helper.rb
+invoke      test_unit
+invoke    assets
+invoke      scss
+create        app/assets/stylesheets/envelopes.scss
+invoke  resource_route
+  route    resources :envelopes
+```
+
+This generator creates an EnvelopesController, Envelope model, create_envelopes migration and adds resources :envelopes to our `config/routes.rb` file. We'll still have to create the controller actions and view files ourselves.
+
+We'll also need to run `rails db:migrate` to commit the changes to our database.
+

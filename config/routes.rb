@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :envelopes
   get 'sessions/new'
   get 'sessions/create'
   delete 'sessions/destroy', to: 'sessions#destroy'
