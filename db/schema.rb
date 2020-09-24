@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_22_232256) do
-
-  create_table "envelopes", force: :cascade do |t|
-    t.string "size"
-    t.string "color"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+ActiveRecord::Schema.define(version: 2020_09_22_012530) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
