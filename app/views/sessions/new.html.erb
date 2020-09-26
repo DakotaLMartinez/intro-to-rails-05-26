@@ -1,2 +1,13 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div class="container">
+  <% if @error %>
+    <div class="alert alert-danger" role="alert">
+      <%= @error %>
+    </div>
+  <% end %>
+  <%= bootstrap_form_for(@user, url: '/sessions') do |f| %>
+    <%= f.email_field :email %>
+    <%= f.password_field :password %>
+    
+    <%= f.submit "Log In" %>
+  <% end %>
+</div>
